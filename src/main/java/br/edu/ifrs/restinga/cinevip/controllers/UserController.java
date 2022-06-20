@@ -15,7 +15,7 @@ public class UserController {
   public User getUser() {
     final User user = new User();
     user.setId(1);
-    user.setCpf("02213408076");
+    user.setCpf("11111111111");
     user.setName("Adriano");
     user.setPassword("C@1234");
     return user;
