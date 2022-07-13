@@ -1,31 +1,38 @@
 package br.edu.ifrs.restinga.cinevip.controllers;
 
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import br.edu.ifrs.restinga.cinevip.models.User;
+import br.edu.ifrs.restinga.cinevip.services.UserService;
 
 @Controller
-@ResponseBody
+// @AllArgsConstructor
+@RequestMapping("/user")
 public class UserController {
-  @RequestMapping(value = "/user", method = RequestMethod.GET)
-  public User getUser() {
-    final User user = new User();
-    user.setId(1);
-    user.setCpf("11111111111");
-    user.setName("Adriano");
-    user.setPassword("C@1234");
-    return user;
-  }
 
-  @RequestMapping(value ="/user", method = RequestMethod.POST)
-  public String setUser(@RequestBody User user) {
-    return "Id: " + user.getId() + "\n" 
-      +"CPF: " + user.getCpf() + "\n" 
-      +"Nome: " + user.getName() + "\n"
-      +"Password: " + user.getPassword() + "\n";
-  }
+    @Autowired
+    private UserService userService;
+  
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(value ="/", method = RequestMethod.POST)
+    public void save(@RequestBody User user) {
+        userService.save(user);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public Optional<User> findById(@PathVariable("id") int id) {
+       return userService.findById(id);
+    }
 }
