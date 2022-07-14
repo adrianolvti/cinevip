@@ -1,5 +1,6 @@
 package br.edu.ifrs.restinga.cinevip.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +25,16 @@ public class UserController {
     private UserService userService;
   
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(value ="/", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public void save(@RequestBody User user) {
         userService.save(user);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
+    public List<User> findAll() {
+       return userService.findAll();
     }
 
     @ResponseStatus(HttpStatus.OK)
@@ -34,5 +42,12 @@ public class UserController {
     @ResponseBody
     public Optional<User> findById(@PathVariable("id") int id) {
        return userService.findById(id);
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @ResponseBody
+    public void update(@RequestBody User user, @PathVariable("id") int id) {
+       userService.update(user, id);
     }
 }

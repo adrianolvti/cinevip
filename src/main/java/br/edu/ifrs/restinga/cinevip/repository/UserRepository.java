@@ -8,4 +8,6 @@ import br.edu.ifrs.restinga.cinevip.models.User;
 
 public interface UserRepository extends CrudRepository<User, String>{
     Optional<User> findById(int id);
+    
+    Optional<User> save(Optional<User> user);
 }
