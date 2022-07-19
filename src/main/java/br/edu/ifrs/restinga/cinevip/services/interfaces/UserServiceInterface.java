@@ -6,11 +6,13 @@ import java.util.Optional;
 import br.edu.ifrs.restinga.cinevip.models.User;
 
 public interface UserServiceInterface {
-    void save(User user);
+    public void save(User user);
 
-    List<User> findAll();
+    public List<User> findAll();
 
-    Optional<User> findById(int id);
+    public Optional<User> findById(int id);
     
-    void update(User user, int id);
+    public void update(User user, int id);
+
+    public void deleteById(int id);
 }

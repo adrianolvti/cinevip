@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.edu.ifrs.restinga.cinevip.models.User;
 import br.edu.ifrs.restinga.cinevip.repository.UserRepository;
@@ -34,8 +35,19 @@ public class UserService implements UserServiceInterface{
 
     @Override
     public void update(User user_update, int id) {
-        User user = userRepository.find(id);
-        user = user_update;
+        Optional<User> optional = userRepository.findById(id);
+        User user = optional.get();
+
+        if(user_update.getName() != null) user.setName(user_update.getName());
+        if(user_update.getCpf() != null) user.setCpf(user_update.getCpf());
+        if(user_update.getPassword() != null) user.setPassword(user_update.getPassword());
+        
         userRepository.save(user);
+    }
+
+    @Transactional
+    @Override
+    public void deleteById(int id) {
+        userRepository.deleteById(id);
     }    
 }

@@ -26,28 +26,35 @@ public class UserController {
   
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(method = RequestMethod.POST)
-    public void save(@RequestBody User user) {
+    public void create(@RequestBody User user) {
         userService.save(user);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public List<User> findAll() {
+    public List<User> index() {
        return userService.findAll();
     }
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Optional<User> findById(@PathVariable("id") int id) {
+    public Optional<User> show(@PathVariable("id") int id) {
        return userService.findById(id);
     }
 
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public void update(@RequestBody User user, @PathVariable("id") int id) {
        userService.update(user, id);
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public void delete(@PathVariable("id") int id) {
+       userService.deleteById(id);
     }
 }
