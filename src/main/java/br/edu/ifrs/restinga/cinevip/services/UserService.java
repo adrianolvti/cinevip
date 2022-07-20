@@ -12,8 +12,7 @@ import br.edu.ifrs.restinga.cinevip.repository.UserRepository;
 import br.edu.ifrs.restinga.cinevip.services.interfaces.UserServiceInterface;
 
 @Service
-
-public class UserService implements UserServiceInterface{
+public class UserService implements UserServiceInterface {
     
     @Autowired
     private UserRepository userRepository; 
