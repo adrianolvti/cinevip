@@ -10,9 +10,9 @@ public interface MovieServiceInterface {
 
     public List<Movie> findAll();
 
-    public Optional<Movie> findById(int id);
+    public Optional<Movie> findById(Long id);
     
-    public void update(Movie movie, int id);
+    public void update(Movie movie, Long id);
 
-    public void deleteById(int id);
+    public void deleteById(Long id);
 }

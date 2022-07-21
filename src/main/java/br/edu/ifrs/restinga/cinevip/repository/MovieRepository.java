@@ -7,9 +7,9 @@ import org.springframework.data.repository.CrudRepository;
 import br.edu.ifrs.restinga.cinevip.models.Movie;
 
 public interface MovieRepository extends CrudRepository<Movie, String> {
-    public Optional<Movie> findById(int id);
+    public Optional<Movie> findById(Long id);
     
     public Optional<Movie> save(Optional<Movie> movie);
 
-    public void deleteById(int id);
+    public void deleteById(Long id);
 }

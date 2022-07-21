@@ -17,6 +17,7 @@ public class UserService implements UserServiceInterface {
     @Autowired
     private UserRepository userRepository; 
 
+    @Transactional
     @Override
     public void save(User user) {
         userRepository.save(user);
@@ -28,12 +29,13 @@ public class UserService implements UserServiceInterface {
     }
 
     @Override
-    public Optional<User> findById(int id) {
+    public Optional<User> findById(Long id) {
         return userRepository.findById(id);
     }
 
+    @Transactional
     @Override
-    public void update(User user_update, int id) {
+    public void update(User user_update, Long id) {
         Optional<User> optional = userRepository.findById(id);
         User user = optional.get();
 
@@ -46,7 +48,7 @@ public class UserService implements UserServiceInterface {
 
     @Transactional
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         userRepository.deleteById(id);
     }    
 }

@@ -10,9 +10,9 @@ public interface UserServiceInterface {
 
     public List<User> findAll();
 
-    public Optional<User> findById(int id);
+    public Optional<User> findById(Long id);
     
-    public void update(User user, int id);
+    public void update(User user, Long id);
 
-    public void deleteById(int id);
+    public void deleteById(Long id);
 }

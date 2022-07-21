@@ -3,6 +3,8 @@ package br.edu.ifrs.restinga.cinevip.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,7 @@ public class MovieService implements MovieServiceInterface {
     @Autowired
     private MovieRepository movieRepository;
 
+    @Transactional
     @Override
     public void save(Movie movie) {
         movieRepository.save(movie);
@@ -27,21 +30,21 @@ public class MovieService implements MovieServiceInterface {
     }
 
     @Override
-    public Optional<Movie> findById(int id) {
-        // TODO Auto-generated method stub
-        return Optional.empty();
+    public Optional<Movie> findById(Long id) {
+        return movieRepository.findById(id);
     }
 
     @Override
-    public void update(Movie movie, int id) {
-        // TODO Auto-generated method stub
-        
+    public void update(Movie movie_update, Long id) {
+        Optional<Movie> optional = movieRepository.findById(id);
+        Movie movie = optional.get();
+        movie.setName("teste");
+        movieRepository.save(movie);
     }
 
+    @Transactional
     @Override
-    public void deleteById(int id) {
-        // TODO Auto-generated method stub
-        
+    public void deleteById(Long id) {
+        movieRepository.deleteById(id);
     }
-    
 }

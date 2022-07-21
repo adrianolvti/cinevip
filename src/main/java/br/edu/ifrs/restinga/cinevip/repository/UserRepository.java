@@ -7,9 +7,9 @@ import org.springframework.data.repository.CrudRepository;
 import br.edu.ifrs.restinga.cinevip.models.User;
 
 public interface UserRepository extends CrudRepository<User, String> {
-    public Optional<User> findById(int id);
+    public Optional<User> findById(Long id);
     
     public Optional<User> save(Optional<User> user);
 
-    public void deleteById(int id);
+    public void deleteById(Long id);
 }

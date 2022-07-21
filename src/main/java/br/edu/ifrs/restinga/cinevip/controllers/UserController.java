@@ -17,7 +17,6 @@ import br.edu.ifrs.restinga.cinevip.models.User;
 import br.edu.ifrs.restinga.cinevip.services.UserService;
 
 @Controller
-// @AllArgsConstructor
 @RequestMapping("/user")
 public class UserController {
 
@@ -40,21 +39,21 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Optional<User> show(@PathVariable("id") int id) {
+    public Optional<User> show(@PathVariable("id") Long id) {
        return userService.findById(id);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public void update(@RequestBody User user, @PathVariable("id") int id) {
+    public void update(@RequestBody User user, @PathVariable("id") Long id) {
        userService.update(user, id);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public void delete(@PathVariable("id") int id) {
+    public void delete(@PathVariable("id") Long id) {
        userService.deleteById(id);
     }
 }
