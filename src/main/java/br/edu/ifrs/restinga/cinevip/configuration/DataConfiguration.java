@@ -1,4 +1,4 @@
-// package br.edu.ifrs.restinga.cinevip;
+// package br.edu.ifrs.restinga.cinevip.configuration;
 
 // import org.springframework.context.annotation.Bean;
 // import org.springframework.context.annotation.Configuration;

@@ -1,25 +1,20 @@
-package br.edu.ifrs.restinga.cinevip.models;
+package br.edu.ifrs.restinga.cinevip.domain.orm;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
-@Getter
-@Setter
-@Table(name="movie")
-public class Movie {
+@Data
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String name;
-    private String genre;
-    private String synopsis;
+    private String cpf;
+    private String password;
 }
