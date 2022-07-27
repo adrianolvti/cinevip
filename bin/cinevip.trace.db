@@ -1,0 +1,9 @@
+2022-07-26 22:13:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table session (id bigint not null, [*]hour time, movie_id bigint, room_id bigint, primary key (id))"; expected "identifier"; SQL statement:
+create table session (id bigint not null, hour time, movie_id bigint, room_id bigint, primary key (id)) [42001-212]
+2022-07-26 22:13:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "SESSION" not found; SQL statement:
+alter table session add constraint FKd38hyauvpulqx795f234oe049 foreign key (movie_id) references movie [42102-212]
+2022-07-26 22:13:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "SESSION" not found; SQL statement:
+alter table session add constraint FKoyfccms1psubki0cm7c92msrp foreign key (room_id) references room [42102-212]

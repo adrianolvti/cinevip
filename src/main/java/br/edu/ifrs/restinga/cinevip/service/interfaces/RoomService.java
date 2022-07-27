@@ -1,4 +1,4 @@
-package br.edu.ifrs.restinga.cinevip.service;
+package br.edu.ifrs.restinga.cinevip.service.interfaces;
 
 import br.edu.ifrs.restinga.cinevip.api.v1.dto.RoomDTO;
 import br.edu.ifrs.restinga.cinevip.domain.orm.Room;

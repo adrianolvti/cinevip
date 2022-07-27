@@ -8,6 +8,7 @@ import br.edu.ifrs.restinga.cinevip.api.v1.dto.RoomDTO;
 import br.edu.ifrs.restinga.cinevip.domain.orm.Room;
 import br.edu.ifrs.restinga.cinevip.domain.repository.RoomRepository;
 import br.edu.ifrs.restinga.cinevip.exception.ValidateFieldsException;
+import br.edu.ifrs.restinga.cinevip.service.interfaces.RoomService;
 
 import static java.util.Objects.isNull;
 

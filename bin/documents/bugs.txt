@@ -1,0 +1,6 @@
+=> Bug no create do usuário e filme:
+    Quando salva, retorna o id null.
+
+=> Bug no listAll da sala:
+    Quando usado a classe DTO de list, busca todos um ultimo id criado soment, 
+    fazendo replace nos anteriores

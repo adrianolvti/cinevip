@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import br.edu.ifrs.restinga.cinevip.api.v1.dto.UserDTO;
 import br.edu.ifrs.restinga.cinevip.domain.orm.User;
 import br.edu.ifrs.restinga.cinevip.domain.repository.UserRepository;
+import br.edu.ifrs.restinga.cinevip.service.interfaces.UserService;
 
 import static java.util.Objects.isNull;
 
