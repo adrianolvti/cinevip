@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -34,6 +34,6 @@ public class Movie {
     @Column(columnDefinition = "VARCHAR(510)")
     private String synopsis;
 
-    // @OneToMany(mappedBy = "movie")
-    // private List<Session> sessionList;
+    @ManyToMany()
+    private List<Session> sessions;
 }

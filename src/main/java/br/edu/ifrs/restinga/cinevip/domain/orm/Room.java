@@ -1,9 +1,12 @@
 package br.edu.ifrs.restinga.cinevip.domain.orm;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -25,6 +28,6 @@ public class Room {
     @NotNull
     private Integer seats;
 
-    // @OneToMany(mappedBy = "room")
-    // private List<Session> sessionList;
+    @OneToMany()
+    private List<Movie> movies;
 }

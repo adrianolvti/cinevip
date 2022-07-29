@@ -2,6 +2,7 @@ package br.edu.ifrs.restinga.cinevip.api.v1.controller;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ import br.edu.ifrs.restinga.cinevip.domain.orm.Room;
 import br.edu.ifrs.restinga.cinevip.service.RoomServiceImpl;
 
 @RestController
-@RequestMapping("/room")
+@RequestMapping("api/room")
 public class RoomController {
     
     @Autowired
@@ -32,7 +33,7 @@ public class RoomController {
     }
 
     @GetMapping
-    public ResponseEntity<Iterable<Room>> findAll() {
+    public ResponseEntity<List<RoomDTO>> findAll() {
         return ResponseEntity.ok().body(roomServiceImpl.findAll());
     }
 

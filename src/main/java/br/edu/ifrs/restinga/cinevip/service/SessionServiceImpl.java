@@ -52,10 +52,8 @@ public class SessionServiceImpl implements SessionService{
     public SessionDTO update(Session updateSession, Long id) {
         Optional<Session> optional = this.sessionRepository.findById(id);
         Session session = optional.get();
-
-        if(updateSession.getSessionHour() != null) session.setSessionHour(updateSession.getSessionHour());
-        if(updateSession.getMovie() != null) session.setMovie(updateSession.getMovie());
-        if(updateSession.getRoom() != null) session.setRoom(updateSession.getRoom());
+        
+        session.setSessionHour(updateSession.getSessionHour());
         
         this.sessionRepository.save(session);
 

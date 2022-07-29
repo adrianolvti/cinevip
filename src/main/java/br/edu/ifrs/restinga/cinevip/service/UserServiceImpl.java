@@ -13,6 +13,8 @@ import br.edu.ifrs.restinga.cinevip.service.interfaces.UserService;
 
 import static java.util.Objects.isNull;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
        
@@ -22,15 +24,15 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public UserDTO create(User user) {
-        UserDTO userDTO = new UserDTO();
-        userDTO.convert(user);
         this.userRepository.save(user);
+        UserDTO userDTO = new UserDTO(user);
         return userDTO;
     }
 
     @Override
-    public Iterable<User> findAll() {
-        return this.userRepository.findAll();
+    public List<UserDTO> findAll() {
+        List<User> users = (List<User>) this.userRepository.findAll();
+        return UserDTO.convertList(users);
     }
 
     @Override
@@ -42,8 +44,7 @@ public class UserServiceImpl implements UserService {
             throw new RuntimeException("User not found");
         }
 
-        UserDTO userDTO = new UserDTO();
-        userDTO.convert(user);
+        UserDTO userDTO = new UserDTO(user);
         return userDTO;
     }
 
@@ -52,20 +53,23 @@ public class UserServiceImpl implements UserService {
     public UserDTO update(User updateUser, Long id) {
         Optional<User> optional = this.userRepository.findById(id);
         User user = optional.get();
-        UserDTO userDTO = new UserDTO();
 
         if(updateUser.getName() != null) user.setName(updateUser.getName());
         if(updateUser.getCpf() != null) user.setCpf(updateUser.getCpf());
         if(updateUser.getPassword() != null) user.setPassword(updateUser.getPassword());
         
         this.userRepository.save(user);
-        return userDTO.convert(user);
+
+        UserDTO userDTO = new UserDTO(user);
+        return userDTO;
     }
 
     @Transactional
     @Override
     public String delete(Long id) {
+        Optional<User> optional = this.userRepository.findById(id);
+        User user = optional.get();
         this.userRepository.deleteById(id);
-        return String.format("O usuário com id %s foi deletado com sucesso", id);
+        return String.format("%s foi deletado com sucesso", user.getName());
     } 
 }

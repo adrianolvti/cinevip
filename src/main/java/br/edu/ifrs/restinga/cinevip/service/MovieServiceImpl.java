@@ -13,6 +13,8 @@ import br.edu.ifrs.restinga.cinevip.service.interfaces.MovieService;
 
 import static java.util.Objects.isNull;
 
+import java.util.List;
+
 @Service
 public class MovieServiceImpl implements MovieService {
 
@@ -22,15 +24,15 @@ public class MovieServiceImpl implements MovieService {
     @Transactional
     @Override
     public MovieDTO create(Movie movie) {
-        MovieDTO movieDTO = new MovieDTO();
-        movieDTO.convert(movie);
         this.movieRepository.save(movie);
+        MovieDTO movieDTO = new MovieDTO(movie);
         return movieDTO;
     }
 
     @Override
-    public Iterable<Movie> findAll() {
-        return this.movieRepository.findAll();
+    public List<MovieDTO> findAll() {
+        List<Movie> movies = (List<Movie>) this.movieRepository.findAll();
+        return MovieDTO.convertList(movies);
     }
 
     @Override
@@ -42,8 +44,7 @@ public class MovieServiceImpl implements MovieService {
             throw new RuntimeException("Movie not found");
         }
 
-        MovieDTO movieDTO = new MovieDTO();
-        movieDTO.convert(movie);
+        MovieDTO movieDTO = new MovieDTO(movie);
         return movieDTO;
     }
 
@@ -52,14 +53,15 @@ public class MovieServiceImpl implements MovieService {
     public MovieDTO update(Movie updateMovie, Long id) {
         Optional<Movie> optional = this.movieRepository.findById(id);
         Movie movie = optional.get();
-        MovieDTO userDTO = new MovieDTO();
 
         if(updateMovie.getName() != null) movie.setName(updateMovie.getName());
         if(updateMovie.getGenre() != null) movie.setGenre(updateMovie.getGenre());
         if(updateMovie.getSynopsis() != null) movie.setSynopsis(updateMovie.getSynopsis());
         
         this.movieRepository.save(movie);
-        return userDTO.convert(movie);
+
+        MovieDTO userDTO = new MovieDTO(movie);
+        return userDTO;
     }
 
     @Transactional
