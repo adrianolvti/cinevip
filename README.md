@@ -43,3 +43,6 @@
 [web]    @RestController
 
 [springframework]   @Component
+
+https://docs.jboss.org/hibernate/beanvalidation/spec/2.0/api/
+https://regexlib.com/?AspxAutoDetectCookieSupport=1

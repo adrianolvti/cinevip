@@ -8,8 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import lombok.Data;
 
@@ -21,16 +24,14 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @NotEmpty
-    @NotNull
+    @NotBlank
     private String name;
 
-    @NotEmpty
-    @NotNull
+    @NotBlank
     private String genre;
 
-    @NotEmpty
-    @NotNull
+    @NotBlank
+    @Size(min = 50, max = 510)
     @Column(columnDefinition = "VARCHAR(510)")
     private String synopsis;
 

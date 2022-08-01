@@ -4,6 +4,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,7 +29,7 @@ public class MovieController {
     private MovieServiceImpl movieServiceImpl;
 
     @PostMapping
-    public ResponseEntity<MovieDTO> create(@RequestBody Movie movie) throws URISyntaxException {
+    public ResponseEntity<MovieDTO> create(@Valid @RequestBody Movie movie) throws URISyntaxException {
         URI location = new URI("/room");
         return ResponseEntity.created(location).body(this.movieServiceImpl.create(movie));
     }
@@ -44,7 +46,7 @@ public class MovieController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<MovieDTO> update(@RequestBody Movie movie, @PathVariable("id") Long id) {
+    public ResponseEntity<MovieDTO> update(@Valid @RequestBody Movie movie, @PathVariable("id") Long id) {
         return ResponseEntity.ok().body(this.movieServiceImpl.update(movie, id));
     }
 

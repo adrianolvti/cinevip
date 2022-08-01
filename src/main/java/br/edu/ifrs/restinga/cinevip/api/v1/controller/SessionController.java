@@ -4,6 +4,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,7 +29,7 @@ public class SessionController {
     private SessionServiceImpl sessionServiceImpl;
 
     @PostMapping
-    public ResponseEntity<Session> create(@RequestBody Session session) throws URISyntaxException {
+    public ResponseEntity<Session> create(@Valid @RequestBody Session session) throws URISyntaxException {
         URI location = new URI("/session");
         return ResponseEntity.created(location).body(this.sessionServiceImpl.create(session));
     }
@@ -44,7 +46,7 @@ public class SessionController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<SessionDTO> update(@RequestBody Session session, @PathVariable("id") Long id) {
+    public ResponseEntity<SessionDTO> update(@Valid @RequestBody Session session, @PathVariable("id") Long id) {
         return ResponseEntity.ok().body(this.sessionServiceImpl.update(session, id));
     }
 
