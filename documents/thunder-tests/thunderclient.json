@@ -8,12 +8,12 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-07-23T05:58:40.566Z",
-    "modified": "2022-08-01T02:33:59.742Z",
+    "modified": "2022-08-03T16:43:31.049Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Adriano Lucas Vieira\",\n  \"cpf\": \"71152784072\",\n  \"password\": \"aD14\",\n  \"email\": \"asdas@asda.com\"\n}",
+      "raw": "{\n  \"name\": \"Lucas Vieira\",\n  \"cpf\": \"292.058.600-93\",\n  \"password\": \"aD14\",\n  \"email\": \"asdas@asda.com\"\n}",
       "form": []
     },
     "tests": []
@@ -27,12 +27,12 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-07-23T05:58:40.568Z",
-    "modified": "2022-08-01T03:12:01.438Z",
+    "modified": "2022-08-03T16:44:58.720Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"name\": \"Os Vingadores - The Avengers\",\n    \"genre\": \"Aventura/Ação\",\n    \"synopsis\": \"Loki, o irmão de Thor, ganha acesso ao poder ilimitado do cubo cósmico ao roubá-lo de dentro das instalações da S.H.I.E.L.D. Nick Fury, o diretor desta agência internacional que mantém a paz, logo reúne os únicos super-heróis que serão capazes de defender a Terra de ameaças sem precedentes. Homem de Ferro, Capitão América, Hulk, Thor, Viúva Negra e Gavião Arqueiro formam o time dos sonhos de Fury, mas eles precisam aprender a colocar os egos de lado e agir como um grupo em prol da humanidade.\",\n    \"sessions\": [\n        {\n            \"id\" : 1\n        },\n        {\n            \"id\" : 2\n        }\n    ]\n}",
+      "raw": "{\n    \"name\": \"Os Vingadores \",\n    \"genre\": \"Aventura/Ação\",\n    \"synopsis\": \"Loki, o irmão de Thor, ganha acesso ao poder ilimitado do cubo cósmico ao roubá-lo de dentro das instalações da S.H.I.E.L.D. Nick Fury, o diretor desta agência internacional que mantém a paz, logo reúne os únicos super-heróis que serão capazes de defender a Terra de ameaças sem precedentes. Homem de Ferro, Capitão América, Hulk, Thor, Viúva Negra e Gavião Arqueiro formam o time dos sonhos de Fury, mas eles precisam aprender a colocar os egos de lado e agir como um grupo em prol da humanidade.\",\n    \"sessions\": [\n        {\n            \"id\" : 1\n        }\n    ]\n}",
       "form": []
     },
     "tests": []
@@ -70,11 +70,11 @@
     "colId": "b9d9893e-80ad-41b4-a974-a9d3f955f7f0",
     "containerId": "db7fa7f2-fe87-4e2e-a13c-e61fd6a54c40",
     "name": "Show",
-    "url": "http://localhost:8080/api/user/1",
+    "url": "http://localhost:8080/api/user/2",
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-07-23T05:58:40.571Z",
-    "modified": "2022-07-29T03:49:33.059Z",
+    "modified": "2022-08-03T15:48:49.322Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -88,7 +88,7 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-07-23T05:58:40.572Z",
-    "modified": "2022-07-30T14:56:09.944Z",
+    "modified": "2022-08-03T16:11:49.888Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -98,16 +98,16 @@
     "colId": "b9d9893e-80ad-41b4-a974-a9d3f955f7f0",
     "containerId": "db7fa7f2-fe87-4e2e-a13c-e61fd6a54c40",
     "name": "Update",
-    "url": "http://localhost:8080/api/user/1",
+    "url": "http://localhost:8080/api/user/2",
     "method": "PUT",
     "sortNum": 30000,
     "created": "2022-07-23T05:58:40.573Z",
-    "modified": "2022-08-01T02:44:10.663Z",
+    "modified": "2022-08-03T15:49:40.070Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Adriano Lucas Vieira\",\n  \"cpf\": \"71152784072\",\n  \"email\": \"asdas@asda.com\"\n}",
+      "raw": "{\n  \"name\": \"Lucas Vieira\",\n  \"email\": \"novoemail@asda.com\"\n}",
       "form": []
     },
     "tests": []
@@ -121,12 +121,12 @@
     "method": "PUT",
     "sortNum": 30000,
     "created": "2022-07-23T05:58:40.574Z",
-    "modified": "2022-07-29T03:53:49.170Z",
+    "modified": "2022-08-03T15:54:03.791Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"genre\": \"oi\"\n}",
+      "raw": "{\n  \"name\": \"Os Vingadores \",\n    \"genre\": \"Aventura/Ação\",\n    \"synopsis\": \"update asdaoskdaoskdpaksdpkaspodkopakspodkpoaksdokopaskdpokaposkdpkaposkdpok  asdaoskdaoskdpaksdpkaspodkopakspodkpoaksdokopaskdpokaposkdpkaposkdpok asdaoskdaoskdpaksdpkaspodkopakspodkpoaksdokopaskdpokaposkdpkaposkdpok asdaoskdaoskdpaksdpkaspodkopakspodkpoaksdokopaskdpokaposkdpkaposkdpok\"\n}",
       "form": []
     },
     "tests": []
@@ -136,11 +136,11 @@
     "colId": "b9d9893e-80ad-41b4-a974-a9d3f955f7f0",
     "containerId": "db7fa7f2-fe87-4e2e-a13c-e61fd6a54c40",
     "name": "Delete",
-    "url": "http://localhost:8080/api/user/5",
+    "url": "http://localhost:8080/api/user/2",
     "method": "DELETE",
     "sortNum": 40000,
     "created": "2022-07-23T05:58:40.575Z",
-    "modified": "2022-07-29T03:49:48.467Z",
+    "modified": "2022-08-03T15:49:53.704Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -168,12 +168,12 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-07-23T05:58:51.434Z",
-    "modified": "2022-08-01T03:23:30.252Z",
+    "modified": "2022-08-03T16:12:27.699Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"number\": 1,\n    \"seats\": 80\n}",
+      "raw": "{\n    \"number\": 1,\n    \"seats\": 180,\n    \"movies\":[\n      {\n        \"id\": 1\n      },\n      {\n        \"id\": 2\n      }\n    ] \n}",
       "form": []
     },
     "tests": []
@@ -201,7 +201,7 @@
     "method": "GET",
     "sortNum": 12500,
     "created": "2022-07-23T05:58:51.436Z",
-    "modified": "2022-07-27T03:27:18.298Z",
+    "modified": "2022-08-03T15:56:59.854Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -211,16 +211,16 @@
     "colId": "b9d9893e-80ad-41b4-a974-a9d3f955f7f0",
     "containerId": "8e596463-5c77-43fa-a32f-7aa777b1ff69",
     "name": "Update",
-    "url": "http://localhost:8080/room/6",
+    "url": "http://localhost:8080/room/1",
     "method": "PUT",
     "sortNum": 30000,
     "created": "2022-07-23T05:58:51.437Z",
-    "modified": "2022-07-24T07:39:15.843Z",
+    "modified": "2022-08-03T15:57:44.050Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"seats\": 42\n}",
+      "raw": "{\n  \"seats\": 142\n}",
       "form": []
     },
     "tests": []
@@ -230,11 +230,11 @@
     "colId": "b9d9893e-80ad-41b4-a974-a9d3f955f7f0",
     "containerId": "8e596463-5c77-43fa-a32f-7aa777b1ff69",
     "name": "Delete",
-    "url": "http://localhost:8080/room/4",
+    "url": "http://localhost:8080/room/1",
     "method": "DELETE",
     "sortNum": 40000,
     "created": "2022-07-23T05:58:51.438Z",
-    "modified": "2022-07-24T07:38:55.528Z",
+    "modified": "2022-08-03T15:57:55.555Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -248,12 +248,12 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-07-25T05:20:14.830Z",
-    "modified": "2022-08-01T03:10:37.651Z",
+    "modified": "2022-08-03T16:43:59.087Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"sessionHour\": \"18:00\"\n}",
+      "raw": "{\n    \"sessionHour\": \"20:00\"\n}",
       "form": []
     },
     "tests": []
@@ -291,16 +291,16 @@
     "colId": "b9d9893e-80ad-41b4-a974-a9d3f955f7f0",
     "containerId": "bae896be-5f29-474e-a9f5-940a0e81c43f",
     "name": "Update",
-    "url": "http://localhost:8080/api/session/2",
+    "url": "http://localhost:8080/api/session/1",
     "method": "PUT",
     "sortNum": 30000,
     "created": "2022-07-25T05:20:14.834Z",
-    "modified": "2022-07-29T03:58:08.962Z",
+    "modified": "2022-08-03T15:50:58.669Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"sessionHour\": \"16:00\"\n}",
+      "raw": "{\n    \"sessionHour\": \"14:30\"\n}",
       "form": []
     },
     "tests": []
@@ -310,11 +310,11 @@
     "colId": "b9d9893e-80ad-41b4-a974-a9d3f955f7f0",
     "containerId": "bae896be-5f29-474e-a9f5-940a0e81c43f",
     "name": "Delete",
-    "url": "http://localhost:8080/api/session/2",
+    "url": "http://localhost:8080/api/session/3",
     "method": "DELETE",
     "sortNum": 40000,
     "created": "2022-07-25T05:20:14.835Z",
-    "modified": "2022-07-29T03:58:16.751Z",
+    "modified": "2022-08-03T15:51:15.112Z",
     "headers": [],
     "params": [],
     "tests": []
