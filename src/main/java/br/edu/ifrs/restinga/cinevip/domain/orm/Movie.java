@@ -32,6 +32,6 @@ public class Movie {
     @Column(columnDefinition = "VARCHAR(510)")
     private String synopsis;
 
-    @ManyToMany()
+    @ManyToMany
     private List<Session> sessions;
 }
