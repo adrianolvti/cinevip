@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ifrs.restinga.cinevip.api.v1.dto.SessionDTO;
 import br.edu.ifrs.restinga.cinevip.domain.orm.Session;
 import br.edu.ifrs.restinga.cinevip.service.SessionServiceImpl;
 
@@ -35,18 +34,18 @@ public class SessionController {
     }
 
     @GetMapping
-    public ResponseEntity<List<SessionDTO>> findAll() {
+    public ResponseEntity<List<Session>> findAll() {
         return ResponseEntity.ok().body(this.sessionServiceImpl.findAll());
     }
 
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<SessionDTO> findById(@PathVariable("id") Long id) {
+    public ResponseEntity<Session> findById(@PathVariable("id") Long id) {
         return ResponseEntity.ok().body(this.sessionServiceImpl.findById(id));
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<SessionDTO> update(@Valid @RequestBody Session session, @PathVariable("id") Long id) {
+    public ResponseEntity<Session> update(@Valid @RequestBody Session session, @PathVariable("id") Long id) {
         return ResponseEntity.ok().body(this.sessionServiceImpl.update(session, id));
     }
 

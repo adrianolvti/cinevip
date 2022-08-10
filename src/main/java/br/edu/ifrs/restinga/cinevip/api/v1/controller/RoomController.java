@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ifrs.restinga.cinevip.api.v1.dto.RoomDTO;
 import br.edu.ifrs.restinga.cinevip.domain.orm.Room;
 import br.edu.ifrs.restinga.cinevip.service.RoomServiceImpl;
 
@@ -29,23 +28,23 @@ public class RoomController {
     private RoomServiceImpl roomServiceImpl;
 
     @PostMapping
-    public ResponseEntity<RoomDTO> create(@Valid @RequestBody Room room) throws URISyntaxException {
+    public ResponseEntity<Room> create(@Valid @RequestBody Room room) throws URISyntaxException {
         URI location = new URI("/room");
         return ResponseEntity.created(location).body(this.roomServiceImpl.create(room));
     }
 
     @GetMapping
-    public ResponseEntity<List<RoomDTO>> findAll() {
+    public ResponseEntity<List<Room>> findAll() {
         return ResponseEntity.ok().body(roomServiceImpl.findAll());
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<RoomDTO> findById(@PathVariable("id") Long id) {
+    public ResponseEntity<Room> findById(@PathVariable("id") Long id) {
         return ResponseEntity.ok().body(roomServiceImpl.findById(id));
     }    
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<RoomDTO> update(@Valid @RequestBody Room room, @PathVariable("id") Long id) {
+    public ResponseEntity<Room> update(@Valid @RequestBody Room room, @PathVariable("id") Long id) {
         return ResponseEntity.ok().body(roomServiceImpl.update(room, id));
     }
 
