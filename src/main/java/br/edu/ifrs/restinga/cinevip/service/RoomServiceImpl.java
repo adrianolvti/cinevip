@@ -1,18 +1,15 @@
 package br.edu.ifrs.restinga.cinevip.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.edu.ifrs.restinga.cinevip.api.v1.dto.RoomDTO;
 import br.edu.ifrs.restinga.cinevip.domain.orm.Room;
 import br.edu.ifrs.restinga.cinevip.domain.repository.RoomRepository;
 import br.edu.ifrs.restinga.cinevip.service.interfaces.RoomService;
-
-import static java.util.Objects.isNull;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class RoomServiceImpl implements RoomService {
@@ -22,36 +19,25 @@ public class RoomServiceImpl implements RoomService {
 
     @Transactional
     @Override
-    public RoomDTO create(Room room) {
-        // this.validateFields(room);
-        this.roomRepository.save(room);
-        RoomDTO roomDTO = new RoomDTO(room);
-        return roomDTO;
+    public Room create(Room room) {
+        return this.roomRepository.save(room);
     }
 
     @Override
-    public List<RoomDTO> findAll() {
-        List<Room> roomList = (List<Room>) this.roomRepository.findAll();
-        // RoomDTO roomDTO = new RoomDTO();
-        return RoomDTO.convertList(roomList);
+    public List<Room> findAll() {
+        return (List<Room>) this.roomRepository.findAll();
     }
 
     @Override
-    public RoomDTO findById(Long id) {
+    public Room findById(Long id) {
         Optional<Room> optional = this.roomRepository.findById(id);
         Room room = optional.get();
-        
-        if (isNull(room)) {
-            throw new RuntimeException("Room not found");
-        }
-
-        RoomDTO roomDTO = new RoomDTO(room);
-        return roomDTO;
+        return room;
     }  
 
     @Transactional
     @Override
-    public RoomDTO update(Room updateRoom, Long id) {
+    public Room update(Room updateRoom, Long id) {
         Optional<Room> optional = this.roomRepository.findById(id);
         Room room = optional.get();
 
@@ -59,9 +45,7 @@ public class RoomServiceImpl implements RoomService {
         if(updateRoom.getSeats() != null) room.setSeats(updateRoom.getSeats());
 
         this.roomRepository.save(room);
-
-        RoomDTO roomDTO = new RoomDTO(room);
-        return roomDTO;
+        return room;
     }
 
     @Transactional
@@ -70,14 +54,4 @@ public class RoomServiceImpl implements RoomService {
         this.roomRepository.deleteById(id);
         return String.format("Sala de id %s foi deletada com sucesso", id);
     }
-
-    // private void validateFields(Room room) {
-
-    //     if (room.getNumber() == null) {
-    //         throw new ValidateFieldsException("O campo núrero da sala precisa ser preenchido");
-    //     }
-    //     if (room.getSeats() == null) {
-    //         throw new ValidateFieldsException("O campo quandidade de ascentos precisa ser preenchido");
-    //     }
-    // }
 }

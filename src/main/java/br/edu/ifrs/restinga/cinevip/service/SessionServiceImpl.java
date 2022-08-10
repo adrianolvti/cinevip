@@ -1,5 +1,6 @@
 package br.edu.ifrs.restinga.cinevip.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,14 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import br.edu.ifrs.restinga.cinevip.api.v1.dto.SessionDTO;
 import br.edu.ifrs.restinga.cinevip.domain.orm.Session;
 import br.edu.ifrs.restinga.cinevip.domain.repository.SessionRepository;
 import br.edu.ifrs.restinga.cinevip.service.interfaces.SessionService;
-
-import static java.util.Objects.isNull;
-
-import java.util.List;
 
 @Service
 public class SessionServiceImpl implements SessionService{
@@ -29,36 +25,27 @@ public class SessionServiceImpl implements SessionService{
     }
 
     @Override
-    public List<SessionDTO> findAll() {
-        List<Session> sessions = (List<Session>) this.sessionRepository.findAll();
-        return SessionDTO.convertList(sessions);
+    public List<Session> findAll() {
+        return (List<Session>) this.sessionRepository.findAll();
     }
 
     @Override
-    public SessionDTO findById(Long id) {
+    public Session findById(Long id) {
         Optional<Session> optional = this.sessionRepository.findById(id);
         Session session = optional.get();
-        
-        if (isNull(session)) {
-            throw new RuntimeException("Session not found");
-        }
-
-        SessionDTO sessionDTO = new SessionDTO(session);
-        return sessionDTO;
+        return session;
     }
 
     @Transactional
     @Override
-    public SessionDTO update(Session updateSession, Long id) {
+    public Session update(Session updateSession, Long id) {
         Optional<Session> optional = this.sessionRepository.findById(id);
         Session session = optional.get();
         
         session.setSessionHour(updateSession.getSessionHour());
         
         this.sessionRepository.save(session);
-
-        SessionDTO sessionDTO = new SessionDTO(session);
-        return sessionDTO;
+        return session;
     }
 
     @Transactional

@@ -35,4 +35,8 @@ public class User {
     @Email(regexp = "[\\w-]+@([\\w-]+\\.)+[\\w-]+")
     @NotNull
     private String email;
+
+    public User get() {
+        return null;
+    }
 }
