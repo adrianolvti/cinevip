@@ -1,33 +1,34 @@
 package br.edu.ifrs.restinga.cinevip.domain.orm;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-public class Room {
-    
+@AllArgsConstructor
+@NoArgsConstructor
+public class Seat {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToOne
+    private Room room;
+    
+    @OneToOne
+    private Session session;
     
     @NotNull
     @Positive
-    private Integer number;
-
-    @NotNull
-    @Positive
-    private Integer seats;
-
-    @OneToMany
-    private List<Movie> movies;
+    private int number;
 }
