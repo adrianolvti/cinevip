@@ -8,12 +8,12 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-07-23T05:58:40.566Z",
-    "modified": "2022-08-05T02:35:15.947Z",
+    "modified": "2022-08-17T21:06:10.768Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Adriano Lucas Vieira\",\n  \"cpf\": \"292.058.600-93\",\n  \"password\": \"aD14\",\n  \"email\": \"asdas@asda.com\"\n}",
+      "raw": "{\n  \"name\": \"Adriano Lucas\",\n  \"cpf\": \"292.058.600-93\",\n  \"password\": \"aD14\",\n  \"email\": \"asdas@asda.com\"\n}",
       "form": []
     },
     "tests": []
@@ -84,11 +84,11 @@
     "colId": "b9d9893e-80ad-41b4-a974-a9d3f955f7f0",
     "containerId": "37417c1d-0fad-4fca-a52b-c466a5a5ab17",
     "name": "Show",
-    "url": "http://localhost:8080/api/movie/42",
+    "url": "http://localhost:8080/api/movie/2",
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-07-23T05:58:40.572Z",
-    "modified": "2022-08-09T03:47:55.087Z",
+    "modified": "2022-08-17T21:07:44.220Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -117,11 +117,11 @@
     "colId": "b9d9893e-80ad-41b4-a974-a9d3f955f7f0",
     "containerId": "37417c1d-0fad-4fca-a52b-c466a5a5ab17",
     "name": "Update",
-    "url": "http://localhost:8080/api/movie/42",
+    "url": "http://localhost:8080/api/movie/2",
     "method": "PUT",
     "sortNum": 30000,
     "created": "2022-07-23T05:58:40.574Z",
-    "modified": "2022-08-09T03:49:18.938Z",
+    "modified": "2022-08-17T21:07:54.346Z",
     "headers": [],
     "params": [],
     "body": {
@@ -150,11 +150,11 @@
     "colId": "b9d9893e-80ad-41b4-a974-a9d3f955f7f0",
     "containerId": "37417c1d-0fad-4fca-a52b-c466a5a5ab17",
     "name": "Delete",
-    "url": "http://localhost:8080/api/movie/42",
+    "url": "http://localhost:8080/api/movie/2",
     "method": "DELETE",
     "sortNum": 40000,
     "created": "2022-07-23T05:58:40.576Z",
-    "modified": "2022-08-09T03:49:59.729Z",
+    "modified": "2022-08-17T21:08:12.599Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -197,11 +197,11 @@
     "colId": "b9d9893e-80ad-41b4-a974-a9d3f955f7f0",
     "containerId": "8e596463-5c77-43fa-a32f-7aa777b1ff69",
     "name": "Find",
-    "url": "http://localhost:8080/room/1",
+    "url": "http://localhost:8080/api/room/1",
     "method": "GET",
     "sortNum": 12500,
     "created": "2022-07-23T05:58:51.436Z",
-    "modified": "2022-08-03T15:56:59.854Z",
+    "modified": "2022-08-15T04:10:26.417Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -248,12 +248,12 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-07-25T05:20:14.830Z",
-    "modified": "2022-08-09T02:03:31.738Z",
+    "modified": "2022-08-17T03:42:52.526Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"sessionHour\": \"20:00\"\n}",
+      "raw": "{\n    \"sessionHour\": \"14:00\"\n}",
       "form": []
     },
     "tests": []
@@ -324,16 +324,16 @@
     "colId": "b9d9893e-80ad-41b4-a974-a9d3f955f7f0",
     "containerId": "8171baa5-3e9c-41e6-a554-2c7206819873",
     "name": "Create",
-    "url": "http://localhost:8080/api/sale/1,2",
+    "url": "http://localhost:8080/api/sale",
     "method": "POST",
     "sortNum": 50000,
     "created": "2022-08-05T02:15:53.212Z",
-    "modified": "2022-08-10T03:55:17.349Z",
+    "modified": "2022-08-15T04:56:47.589Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n \"user\": {\n    \"id\":1\n },\n \"movie\": {\n    \"id\": 1\n },\n \"room\": {\n    \"id\": 1\n },\n \"session\": {\n    \"id\": 1\n }\n}",
+      "raw": "{\n  \"user\": {\n    \"id\":1\n  },\n  \"room\": {\n    \"id\": 1\n  },\n  \"session\": {\n    \"id\": 1\n  },\n  \"seats\": [\n    {\n      \"room\": {\n        \"id\": 1\n      },\n      \"session\": {\n        \"id\": 1\n      },\n      \"number\" :11\n    },\n    {\n      \"room\": {\n        \"id\": 1\n      },\n      \"session\": {\n        \"id\": 1\n      },\n      \"number\" :12\n    }\n  ]\n}",
       "form": []
     },
     "tests": []
@@ -348,6 +348,44 @@
     "sortNum": 60000,
     "created": "2022-08-10T04:51:02.731Z",
     "modified": "2022-08-10T04:51:20.620Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n \"user\": {\n    \"id\":1\n },\n \"movie\": {\n    \"id\": 1\n },\n \"room\": {\n    \"id\": 1\n },\n \"session\": {\n    \"id\": 1\n }\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "dd4353a9-38d3-40f4-a86a-c497403c4ba6",
+    "colId": "b9d9893e-80ad-41b4-a974-a9d3f955f7f0",
+    "containerId": "8171baa5-3e9c-41e6-a554-2c7206819873",
+    "name": "Find",
+    "url": "http://localhost:8080/api/sale/1",
+    "method": "GET",
+    "sortNum": 70000,
+    "created": "2022-08-17T21:14:31.768Z",
+    "modified": "2022-08-17T21:14:50.748Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n \"user\": {\n    \"id\":1\n },\n \"movie\": {\n    \"id\": 1\n },\n \"room\": {\n    \"id\": 1\n },\n \"session\": {\n    \"id\": 1\n }\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "3634969b-ff2b-41ef-9df8-b46704fc6461",
+    "colId": "b9d9893e-80ad-41b4-a974-a9d3f955f7f0",
+    "containerId": "8171baa5-3e9c-41e6-a554-2c7206819873",
+    "name": "Delete",
+    "url": "http://localhost:8080/api/sale/4",
+    "method": "DELETE",
+    "sortNum": 80000,
+    "created": "2022-08-17T21:17:42.827Z",
+    "modified": "2022-08-17T21:18:24.565Z",
     "headers": [],
     "params": [],
     "body": {

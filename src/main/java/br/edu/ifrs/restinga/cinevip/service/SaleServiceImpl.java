@@ -17,13 +17,9 @@ public class SaleServiceImpl implements SaleService {
     @Autowired
     private SaleRepository saleRepository;
 
-    // @Autowired
-    // private SeatRepository seatRepository;
-
     @Transactional
     @Override
     public Sale create(Sale sale) {
-
         return this.saleRepository.save(sale);
     }
 

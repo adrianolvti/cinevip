@@ -26,20 +26,9 @@ public class SaleController {
     @Autowired
     private SaleServiceImpl saleServiceImpl;
 
-    // @Autowired
-    // private SeatServiceImpl seatServiceImpl;
-
-    @PostMapping("/{seats}")
-    public ResponseEntity<Sale> create(
-        @PathVariable("seats") List<Integer> seats, 
-        @Valid  
-        @RequestBody Sale sale
-    ) throws URISyntaxException {
-
+    @PostMapping
+    public ResponseEntity<Sale> create(@Valid @RequestBody Sale sale) throws URISyntaxException {
         URI location = new URI("/sale");
-
-        // this.seatServiceImpl.create(sale.getRoom(), seats);
-
         return ResponseEntity.created(location).body(this.saleServiceImpl.create(sale));
     }
 
