@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.edu.ifrs.restinga.cinevip.api.v1.dto.SaleDTO;
 import br.edu.ifrs.restinga.cinevip.domain.orm.Sale;
 import br.edu.ifrs.restinga.cinevip.service.SaleServiceImpl;
 
@@ -27,18 +28,18 @@ public class SaleController {
     private SaleServiceImpl saleServiceImpl;
 
     @PostMapping
-    public ResponseEntity<Sale> create(@Valid @RequestBody Sale sale) throws URISyntaxException {
+    public ResponseEntity<SaleDTO> create(@Valid @RequestBody Sale sale) throws URISyntaxException {
         URI location = new URI("/sale");
         return ResponseEntity.created(location).body(this.saleServiceImpl.create(sale));
     }
 
     @GetMapping
-    public ResponseEntity<List<Sale>> findAll() {
+    public ResponseEntity<List<SaleDTO>> findAll() {
         return ResponseEntity.ok().body(saleServiceImpl.findAll());
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Sale> findById(@PathVariable("id") Long id) {
+    public ResponseEntity<SaleDTO> findById(@PathVariable("id") Long id) {
         return ResponseEntity.ok().body(saleServiceImpl.findById(id));
     }    
 

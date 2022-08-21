@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.edu.ifrs.restinga.cinevip.api.v1.dto.SaleDTO;
 import br.edu.ifrs.restinga.cinevip.domain.orm.Sale;
 import br.edu.ifrs.restinga.cinevip.domain.repository.SaleRepository;
 import br.edu.ifrs.restinga.cinevip.service.interfaces.SaleService;
@@ -19,20 +20,25 @@ public class SaleServiceImpl implements SaleService {
 
     @Transactional
     @Override
-    public Sale create(Sale sale) {
-        return this.saleRepository.save(sale);
+    public SaleDTO create(Sale sale) {
+        this.saleRepository.save(sale);
+        SaleDTO saleDTO = new SaleDTO();
+        return saleDTO;
     }
 
     @Override
-    public List<Sale> findAll() {
-        return (List<Sale>) this.saleRepository.findAll();
+    public List<SaleDTO> findAll() {
+        List<Sale> sales = (List<Sale>) this.saleRepository.findAll();
+        return SaleDTO.convertList(sales);
     }
 
     @Override
-    public Sale findById(Long id) {
+    public SaleDTO findById(Long id) {
         Optional<Sale> optional = this.saleRepository.findById(id);
         Sale sale = optional.get();
-        return sale;
+
+        SaleDTO saleDTO = new SaleDTO(sale);
+        return saleDTO;
     }
 
     @Transactional

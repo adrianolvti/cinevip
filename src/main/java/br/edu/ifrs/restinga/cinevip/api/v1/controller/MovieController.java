@@ -2,6 +2,7 @@ package br.edu.ifrs.restinga.cinevip.api.v1.controller;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ifrs.restinga.cinevip.domain.orm.Movie;
+import br.edu.ifrs.restinga.cinevip.domain.orm.Session;
 import br.edu.ifrs.restinga.cinevip.service.MovieServiceImpl;
 
 @RestController
@@ -27,6 +29,7 @@ public class MovieController {
     @Autowired
     private MovieServiceImpl movieServiceImpl;
 
+    
     @PostMapping
     public ResponseEntity<Movie> create(@Valid @RequestBody Movie movie) throws URISyntaxException {
         URI location = new URI("/room");
@@ -52,5 +55,13 @@ public class MovieController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> delete(@PathVariable Long id) {
         return ResponseEntity.ok().body(this.movieServiceImpl.delete(id));
+    }
+
+    @GetMapping(value = "/list-by-session-hour")
+    public ResponseEntity<List<Movie>> searchBySessionHour(@RequestBody Session session) {
+        
+        LocalTime hour = session.getHours();
+
+        return ResponseEntity.ok().body(this.movieServiceImpl.searchBySessionHour(hour));
     }
 }

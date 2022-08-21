@@ -27,12 +27,12 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-07-23T05:58:40.568Z",
-    "modified": "2022-08-10T02:56:32.607Z",
+    "modified": "2022-08-21T06:44:24.611Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"name\": \"Os Vingadores \",\n    \"genre\": \"Aventura/Ação\",\n    \"synopsis\": \"Loki, o irmão de Thor, ganha acesso ao poder ilimitado do cubo cósmico ao roubá-lo de dentro das instalações da S.H.I.E.L.D. Nick Fury, o diretor desta agência internacional que mantém a paz, logo reúne os únicos super-heróis que serão capazes de defender a Terra de ameaças sem precedentes. Homem de Ferro, Capitão América, Hulk, Thor, Viúva Negra e Gavião Arqueiro formam o time dos sonhos de Fury, mas eles precisam aprender a colocar os egos de lado e agir como um grupo em prol da humanidade.\",\n    \"sessions\": [\n        {\n            \"id\" :  1\n        }\n    ]\n}",
+      "raw": "{\n    \"name\": \"Filme 3 Os Vingadores \",\n    \"genre\": \"Aventura/Ação\",\n    \"synopsis\": \"Loki, o irmão de Thor, ganha acesso ao poder ilimitado do cubo cósmico ao roubá-lo de dentro das instalações da S.H.I.E.L.D. Nick Fury, o diretor desta agência internacional que mantém a paz, logo reúne os únicos super-heróis que serão capazes de defender a Terra de ameaças sem precedentes. Homem de Ferro, Capitão América, Hulk, Thor, Viúva Negra e Gavião Arqueiro formam o time dos sonhos de Fury, mas eles precisam aprender a colocar os egos de lado e agir como um grupo em prol da humanidade.\",\n    \"sessions\": [\n        {\n            \"id\" :  3\n        }\n    ]\n}",
       "form": []
     },
     "tests": []
@@ -121,12 +121,12 @@
     "method": "PUT",
     "sortNum": 30000,
     "created": "2022-07-23T05:58:40.574Z",
-    "modified": "2022-08-17T21:07:54.346Z",
+    "modified": "2022-08-21T05:27:28.867Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Os Vingadores \",\n    \"genre\": \"Aventura/Ação\",\n    \"synopsis\": \"update asdaoskdaoskdpaksdpkaspodkopakspodkpoaksdokopaskdpokaposkdpkaposkdpok  asdaoskdaoskdpaksdpkaspodkopakspodkpoaksdokopaskdpokaposkdpkaposkdpok asdaoskdaoskdpaksdpkaspodkopakspodkpoaksdokopaskdpokaposkdpkaposkdpok asdaoskdaoskdpaksdpkaspodkopakspodkpoaksdokopaskdpokaposkdpkaposkdpok\",\n    \n      \"sessions\": [\n    {\n      \"id\": 4\n    }\n    ]\n}",
+      "raw": "{\n  \"name\": \"Vingadores \",\n    \"genre\": \"Aventura/Ação\",\n    \"synopsis\": \"update asdaoskdaoskdpaksdpkaspodkopakspodkpoaksdokopaskdpokaposkdpkaposkdpok  asdaoskdaoskdpaksdpkaspodkopakspodkpoaksdokopaskdpokaposkdpkaposkdpok asdaoskdaoskdpaksdpkaspodkopakspodkpoaksdokopaskdpokaposkdpkaposkdpok asdaoskdaoskdpaksdpkaspodkopakspodkpoaksdokopaskdpokaposkdpkaposkdpok\",\n    \n      \"sessions\": [\n    {\n      \"id\": 4\n    }\n    ]\n}",
       "form": []
     },
     "tests": []
@@ -150,11 +150,11 @@
     "colId": "b9d9893e-80ad-41b4-a974-a9d3f955f7f0",
     "containerId": "37417c1d-0fad-4fca-a52b-c466a5a5ab17",
     "name": "Delete",
-    "url": "http://localhost:8080/api/movie/2",
+    "url": "http://localhost:8080/api/movie/3",
     "method": "DELETE",
     "sortNum": 40000,
     "created": "2022-07-23T05:58:40.576Z",
-    "modified": "2022-08-17T21:08:12.599Z",
+    "modified": "2022-08-21T06:17:06.938Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -248,12 +248,12 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-07-25T05:20:14.830Z",
-    "modified": "2022-08-17T03:42:52.526Z",
+    "modified": "2022-08-21T06:43:52.815Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"sessionHour\": \"14:00\"\n}",
+      "raw": "{\n    \"hours\": \"20:00\"\n}",
       "form": []
     },
     "tests": []
@@ -391,6 +391,25 @@
     "body": {
       "type": "json",
       "raw": "{\n \"user\": {\n    \"id\":1\n },\n \"movie\": {\n    \"id\": 1\n },\n \"room\": {\n    \"id\": 1\n },\n \"session\": {\n    \"id\": 1\n }\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "bc020269-878c-4610-86f7-2773de3f0a05",
+    "colId": "b9d9893e-80ad-41b4-a974-a9d3f955f7f0",
+    "containerId": "37417c1d-0fad-4fca-a52b-c466a5a5ab17",
+    "name": "Sercah by Session",
+    "url": "http://localhost:8080/api/movie/list-by-session-hour",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2022-08-21T04:42:16.616Z",
+    "modified": "2022-08-21T07:06:11.959Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"hours\": \"18:00\"\n}",
       "form": []
     },
     "tests": []
