@@ -22,5 +22,5 @@ public class Session {
 
     @NotNull(message = "Não pode ser nulo ou vazio")
     @JsonFormat(pattern = "HH:mm")
-    private LocalTime sessionHour;
+    private LocalTime hours;
 }

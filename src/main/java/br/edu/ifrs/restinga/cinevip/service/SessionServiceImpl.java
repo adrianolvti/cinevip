@@ -42,7 +42,7 @@ public class SessionServiceImpl implements SessionService{
         Optional<Session> optional = this.sessionRepository.findById(id);
         Session session = optional.get();
         
-        session.setSessionHour(updateSession.getSessionHour());
+        session.setHours(updateSession.getHours());
         
         this.sessionRepository.save(session);
         return session;
